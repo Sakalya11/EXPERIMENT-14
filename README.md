@@ -14,149 +14,163 @@ Multilevel Inheritance: A class is derived from another derived class.
 Hierarchical Inheritance: Multiple classes inherit from the same parent class.
 ## Code- 
 ~~~
-#include <iostream>
+#include<iostream>
+#include <string> 
 using namespace std;
 
-// Base class
-class Parent {
-public:
-    void displayParent() {
-        cout << "This is the Parent class." << endl;
+class Uni {
+    public:
+    string uni = "Symbiosis: ";
+    void discipline (){
+        cout<<"Engineering"<<endl;
     }
 };
-
-// Derived class
-class Child : public Parent {
-public:
-    void displayChild() {
-        cout << "This is the Child class." << endl;
-    }
+class dep: public Uni {
+    public:
+    string dept = "Electronics and telecommunications ";
 };
 
-int main() {
-    Child obj;
-    obj.displayParent();
-    obj.displayChild();
-    return 0;
+int main(){
+    dep u1;
+    u1.discipline();
+    cout<<u1.uni+" "+u1.dept;
 }
-
 ~~~
 b.
 ~~~
-#include <iostream>
+#include<iostream>
+#include<string>
 using namespace std;
 
-// Base class 1
-class Parent1 {
-public:
-    void displayParent1() {
-        cout << "This is Parent1 class." << endl;
+// Parent Class-1
+class Vehicle {
+    public:string company = "Ford";
+    void type() {
+        cout << "Mustang" << endl;
     }
 };
 
-// Base class 2
-class Parent2 {
+// Parent Class-2
+class Specs {
 public:
-    void displayParent2() {
-        cout << "This is Parent2 class." << endl;
+    string mileage = "8 km/l";
+    
+    void colour() {
+        cout << "Grey" << endl;
     }
 };
 
-// Derived class
-class Child : public Parent1, public Parent2 {
+// Child Class (derived from both Vehicle and Specs)
+class Car : public Vehicle, public Specs {
 public:
-    void displayChild() {
-        cout << "This is the Child class." << endl;
-    }
+    string seater = "4 seater";
 };
 
 int main() {
-    Child obj;
-    obj.displayParent1();
-    obj.displayParent2();
-    obj.displayChild();
+    Car f2;
+    
+    f2.colour(); 
+    cout << f2.company << endl; 
+    f2.type(); 
+    cout << "(" << f2.seater << ")" << endl; 
+    cout << "MILEAGE: " << f2.mileage << endl; 
+
     return 0;
 }
 ~~~
 c.
 ~~~
 #include <iostream>
+#include <string>
 using namespace std;
 
-// Base class
-class Grandparent {
+// Parent Class-1
+class Food {
 public:
-    void displayGrandparent() {
-        cout << "This is the Grandparent class." << endl;
+    string cuisine = "Indian";
+    
+    void type() {
+        cout << "Asian" << endl;
     }
 };
 
-// Derived class from Grandparent
-class Parent : public Grandparent {
+// Child Class-1 (derived from Parent-1)
+class Dish : public Food {
 public:
-    void displayParent() {
-        cout << "This is the Parent class." << endl;
-    }
+    string dish = "Biryani";
 };
 
-// Derived class from Parent
-class Child : public Parent {
+// Child Class-2 (derived from Child-1)
+class Restaurant : public Dish {
 public:
-    void displayChild() {
-        cout << "This is the Child class." << endl;
-    }
+    string name = "Spice Kitchen";
 };
 
 int main() {
-    Child obj;
-    obj.displayGrandparent();
-    obj.displayParent();
-    obj.displayChild();
+    Restaurant f3;
+    
+    f3.type();  
+    cout << f3.cuisine << ": " << f3.dish << endl;   
+    cout << "Restaurant: " << f3.name << endl;  
+
     return 0;
 }
-
 ~~~
 d.
 ~~~
 #include <iostream>
+#include <string>
 using namespace std;
 
-// Base class
-class Parent {
-public:
-    void displayParent() {
-        cout << "This is the Parent class." << endl;
+// Parent Class-1
+class Jeans {
+    public:
+    static string type[3];
+    void brand(){
+        cout<<"H&M - &Denim"<<endl;
     }
 };
 
-// Derived class 1
-class Child1 : public Parent {
-public:
-    void displayChild1() {
-        cout << "This is Child1 class." << endl;
-    }
+// Initialize static member
+string Jeans::type[3] = {"Bootcut", "Wide Leg", "Skinny"};
+
+// Child Class-1
+class Bootcut: public Jeans {
+    public:
+    string color="Dark Blue";
 };
 
-// Derived class 2
-class Child2 : public Parent {
-public:
-    void displayChild2() {
-        cout << "This is Child2 class." << endl;
-    }
+// Child Class-2
+class WL: public Jeans {
+    public:
+    string color="Black";
 };
 
-int main() {
-    Child1 obj1;
-    Child2 obj2;
+// Child Class-3
+class Skinny: public Jeans {
+    public:
+    string color="Grey";
+};
 
-    obj1.displayParent();
-    obj1.displayChild1();
+int main(){
+    Bootcut j1;
+    cout<<endl;
+    j1.brand();
+    cout<<j1.type[0]<<": "<<j1.color<<endl;
 
-    obj2.displayParent();
-    obj2.displayChild2();
+    WL j2;
+    cout<<endl;
+    j2.brand();
+    cout<<j2.type[1]<<": "<<j2.color<<endl;
+
+    Skinny j3;
+    cout<<endl;
+    j3.brand();
+    cout<<j3.type[2]<<": "<<j3.color<<endl;
 
     return 0;
 }
+
 ~~~
 
 ## Output-
