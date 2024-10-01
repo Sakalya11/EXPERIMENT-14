@@ -174,10 +174,14 @@ int main(){
 ~~~
 
 ## Output-
+![image](https://github.com/user-attachments/assets/0d11f3f3-e74c-49ef-8d50-ca43e7e74486)
+![image](https://github.com/user-attachments/assets/66fe06cd-59b4-4c4c-8904-a80717e76ca4)
+![image](https://github.com/user-attachments/assets/d12c5246-5cc7-481e-975a-08f2c1d03760)
+![image](https://github.com/user-attachments/assets/2109884d-1a3c-4c74-9be1-dd2976f607a9)
 
 
 ## Conclusion-
- we learnt about different types of inheritance
+ We learnt about different types of inheritance
 
 
 
